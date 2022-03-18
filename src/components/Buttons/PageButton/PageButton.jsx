@@ -1,10 +1,10 @@
 import React from "react";
 import PageButtonContainer from "./PageButton";
 
-const PageButton = ({url,text}) =>{
+const PageButton = ({url,children}) =>{
     return(
         <PageButtonContainer href={url}>
-            {text}
+            {children}
         </PageButtonContainer>
     );
 };

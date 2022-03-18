@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 //assets
 // import logo from './logo.svg';
+import loadGif from './assets/images/pokeball-loading.gif';
 
 //components
 import HeadingH1 from './components/Text/Headings/HeadingH1/HeadingH1';
@@ -16,7 +17,6 @@ import Section from './containers/Section/Section';
 import PokemonList from './containers/PokemonList/PokemonList';
 import PokemonCard from './components/PokemonCard/PokemonCard';
 import MainModal from './containers/MainModal/MainModal';
-import { getPokemonsRequest } from './lib/pokemon-api/requests/get-pokemons-request';
 import PageNavegation from './containers/PageNavegation/PageNavegation';
 
 //Hooks
@@ -28,11 +28,12 @@ import { usePokemons } from './services/pokemon/pokemon-services';
 function App() {
 
   const { handleModal, modalOpened } = useModal();
+  
   // const [modalOpened, setModalOpened] = useState(false);
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
 
-  const [pokemonMoves, setPokemonMoves] = useState({});
+
   //ejemplo de uso de useState para ejecutar funciones al renderizar la pagina
   // const[numerosPokemon, setNumerosPokemon] = useState(0);
   
@@ -75,6 +76,8 @@ function App() {
     handleModal(true)
   };
 
+
+
   // const handlePokemonMoves = async (url) => {
   //   const pokemon = await pokemonService.getPokemon(url);
   //   const pokemonInfo = await pokemon.data;
@@ -98,7 +101,7 @@ function App() {
     <Section>
       <HeadingH2 text="Listado de Pokémon" />
       {
-        pokemonService.loading && <span>Cargando la lista de pokemon...</span>
+        pokemonService.loading && <img src={loadGif} alt="" />
       }
       {
         pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
@@ -107,12 +110,13 @@ function App() {
       <PokemonList>
         {
           pokemonList.map((pokemon, index) => {
+            // handlePokemon(pokemon.url)
             return (
               <li key={index}>
                 <PokemonCard 
-                // number={handlePokemon(pokemon.url).id}
+                // number={selectedPokemon.id}
                 name={pokemon.name} 
-                // image={handlePokemon(pokemon.url).sprites.other["official-artwork"].front_default}
+                // image={selectedPokemon.sprites.other["official-artwork"].front_default}
                 // handleClick = {() => setModalOpened(true)}
                 handleClick = {() => handlePokemon(pokemon.url)}
                 />
@@ -126,7 +130,8 @@ function App() {
       <PageNavegation
         prevUrl={pokemonList.previus}
         nextUrl={pokemonList.next}
-      ></PageNavegation>
+      >
+      </PageNavegation>
     </Section>
     {
       modalOpened && (

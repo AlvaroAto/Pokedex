@@ -7,7 +7,7 @@ const PokemonCard = ({name, handleClick}) => {
         <PokemonCardContainer>
             {/* <h4>{number}</h4> */}
             <h3>{name}</h3>
-            {/* <img src={image} alt="pokemon"/> */}
+            {/* <img src={image} alt={name}/> */}
             <span onClick={() => handleClick()}>Ver ataques</span>
         </PokemonCardContainer>
     );
