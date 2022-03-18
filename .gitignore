@@ -9,6 +9,7 @@
 
 # production
 /build
+variables.env
 
 # misc
 .DS_Store
