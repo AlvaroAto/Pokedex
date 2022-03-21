@@ -43,6 +43,7 @@ const PokemonDetail = () => {
         setSelectedPokemon(pokemonInfo);
     };
     // handlePokemon(params.url);
+    console.log(selectedPokemon.url)
     return(
         <>
             <Header/>

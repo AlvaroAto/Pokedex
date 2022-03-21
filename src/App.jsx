@@ -113,7 +113,7 @@ function App() {
     <Section>
       <HeadingH2 text="Pokémons destacados" />
       {
-        pokemonService.loading && <img src={loadGif} alt=""/>
+        pokemonService.loading && <div className="loading"><img src={loadGif} alt=""/></div>
       }
       {
         pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>

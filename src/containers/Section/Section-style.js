@@ -16,6 +16,17 @@ const SectionContainer = styled.section`
             height:36px;
             cursor:pointer;
         }
+    }
+    div.loading{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width:180px;
+        height:180px;
+        img{
+            width: 180px;
+            height:180px;
+        }
     }   
 `;
 
