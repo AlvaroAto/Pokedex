@@ -64,8 +64,7 @@ const PokemonDetail = () => {
                 {
                     pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
                 }                
-                {
-                   
+                {                   
                     <ul>                        
                         <li></li>
                     </ul>
