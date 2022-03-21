@@ -3,30 +3,29 @@ import React, { useState, useEffect, useRef } from 'react';
 
 //assets
 // import logo from './logo.svg';
-import loadGif from './assets/images/pokeball-loading.gif';
+import loadGif from '../../assets/images/pokeball-loading.gif';
 
 //components
-import HeadingH1 from './components/Text/Headings/HeadingH1/HeadingH1';
-import Paragraph from './components/Text/Paragraph/Paragraph';
-import HeadingH2 from './components/Text/Headings/HeadingH2/HeadinH2';
+import HeadingH1 from '../../components/Text/Headings/HeadingH1/HeadingH1';
+import Paragraph from '../../components/Text/Paragraph/Paragraph';
+import HeadingH2 from '../../components/Text/Headings/HeadingH2/HeadinH2';
 
 //containers
-import Header from './containers/Header/Header';
-import Hero from './containers/Hero/Hero';
-import Section from './containers/Section/Section';
-import PokemonList from './containers/PokemonList/PokemonList';
-import PokemonCard from './components/PokemonCard/PokemonCard';
-import MainModal from './containers/MainModal/MainModal';
-import PageNavegation from './containers/PageNavegation/PageNavegation';
+import Header from '../../containers/Header/Header';
+import Hero from '../../containers/Hero/Hero';
+import Section from '../../containers/Section/Section';
+import PokemonList from '../../containers/PokemonList/PokemonList';
+import PokemonCard from '../../components/PokemonCard/PokemonCard';
+import MainModal from '../../containers/MainModal/MainModal';
+import PageNavegation from '../../containers/PageNavegation/PageNavegation';
 
 //Hooks
-import { useModal } from './hooks/use-modal';
-import { usePokemons } from './services/pokemon/pokemon-services';
+import { useModal } from '../../hooks/use-modal';
+import { usePokemons } from '../../services/pokemon/pokemon-services';
+
 import { Link } from 'react-router-dom';
 
-
-
-function App() {
+function Pokemons() {
 
   const { handleModal, modalOpened } = useModal();
   
@@ -99,14 +98,14 @@ function App() {
   
   return (
     <>
-    <Header/>
+    <Header />
     <Hero>
       <HeadingH1 
-        text = "Pokédex"
+        text = "Todos los pokémons"
         color = '#ffffff'
       />
       <Paragraph 
-        text = "Consulta el listado de pokémons"
+        text = "Elige el pokémon que quieras"
         color = '#ffffff'
       />
     </Hero> 
@@ -141,7 +140,10 @@ function App() {
                 // image={selectedPokemon.sprites.other["official-artwork"].front_default}
                 // handleClick = {() => setModalOpened(true)}
                 handleClick = {() => handlePokemon(pokemon.url)}
-                />
+
+                >                    
+                <Link to={`/pokemons/${pokemon.name}`}>Ver mas información</Link>
+                </PokemonCard>
               </li>
             )
           })
@@ -182,4 +184,4 @@ function App() {
   );
 }
 
-export default App;
+export default Pokemons;

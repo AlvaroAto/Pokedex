@@ -9,6 +9,7 @@ const PageButtonContainer = styled.a`
     padding: 8px 10px;
     text-align: center;
     text-decoration: none;
+    cursor:pointer;
 `;
 
 export default PageButtonContainer;

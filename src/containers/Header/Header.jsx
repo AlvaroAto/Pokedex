@@ -6,10 +6,14 @@ import Logo from '../../components/Logo/Logo';
 //styled-components
 import HeaderContainer from './Header-style';
 
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
         <HeaderContainer>
-            <Logo />
+            <Logo></Logo> 
+            <Link to="/">Home</Link>
+            <Link to="/pokemons">Pokemons</Link>
         </HeaderContainer>
     );   
 };

@@ -6,11 +6,26 @@ import reportWebVitals from './reportWebVitals';
 
 import GlobalStyle from './gobalStyle';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Pokemons from './pages/Pokemons/index';
+import PokemonDetail from './pages/Pokemons/name';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <GlobalStyle />
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/pokemons" element={<Pokemons />} />
+        <Route path="/pokemons/:name" element={<PokemonDetail />} />
+      </Routes>
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
