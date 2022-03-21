@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const HeroContainer = styled.section`
     width: 100%;
-    height: 300px;
+    height: ${(props) => props.height};
     background-color: red; 
 `;
 

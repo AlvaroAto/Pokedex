@@ -22,6 +22,14 @@ const PokemonCardContainer = styled.article`
         cursor: pointer;
         color: white;
     }
+    a{
+        display:inline-block;
+        margin-top:15px;
+        color:red;
+        padding:5px;
+        background-color: #efefef;
+        border-radius: 5px;
+    }
 
 `;
 

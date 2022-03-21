@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 //assets
 // import logo from './logo.svg';
+import buscarGif from './assets/images/pokeball_search.gif';
 import loadGif from './assets/images/pokeball-loading.gif';
 
 //components
@@ -22,7 +23,6 @@ import PageNavegation from './containers/PageNavegation/PageNavegation';
 //Hooks
 import { useModal } from './hooks/use-modal';
 import { usePokemons } from './services/pokemon/pokemon-services';
-import { Link } from 'react-router-dom';
 
 
 
@@ -100,7 +100,7 @@ function App() {
   return (
     <>
     <Header/>
-    <Hero>
+    <Hero height="300px">
       <HeadingH1 
         text = "Pokédex"
         color = '#ffffff'
@@ -119,7 +119,7 @@ function App() {
         pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
       }
       {/* <span>Número de pokemons: {numerosPokemon}</span> */}
-      <div className="buscardor">
+      <div className="buscador">
         <input 
           ref={searchBar} 
           type="text" 
@@ -128,6 +128,7 @@ function App() {
           placeholder="Buscar pokemon"
           onChange={(e) => handleSeach(e)}
         />
+        <img src={buscarGif} alt="" />
       </div>
       <PokemonList>
         {

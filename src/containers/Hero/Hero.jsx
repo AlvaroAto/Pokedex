@@ -2,9 +2,9 @@ import React from 'react';
 
 import HeroContainer from './Hero-style';
 
-const Hero = ({ children }) => {
+const Hero = ({ height, children }) => {
     return (
-        <HeroContainer>
+        <HeroContainer height={height}>
             {children}
         </HeroContainer>
     );
