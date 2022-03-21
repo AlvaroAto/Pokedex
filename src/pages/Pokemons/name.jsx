@@ -42,11 +42,11 @@ const PokemonDetail = () => {
         const pokemonInfo = await pokemon.data;
         setSelectedPokemon(pokemonInfo);
     };
-    
+    // handlePokemon(params.url);
     return(
         <>
             <Header/>
-            <Hero height="300px">
+            <Hero height="">
             <HeadingH1 
                 text = {`Datos de ${params.name}`}
                 color = '#ffffff'
@@ -55,7 +55,7 @@ const PokemonDetail = () => {
             <Section>
                 <HeadingH2 
                     text = {params.name}
-                    color = 'red'
+                    color = "red"
                 />
                 {
                     pokemonService.loading && <img src={loadGif} alt=""/>
@@ -64,7 +64,10 @@ const PokemonDetail = () => {
                     pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
                 }                
                 {
-                    handlePokemon(params.url)
+                   
+                    <ul>                        
+                        <li></li>
+                    </ul>
                 }
             </Section>
         </>
