@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router';
 
 //Hooks
-import { usePokemons } from './services/pokemon/pokemon-services';
+import { usePokemons } from '../../services/pokemon/pokemon-services';
 
 const PokemonDetail = () => {
     const params = useParams();
