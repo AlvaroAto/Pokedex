@@ -85,7 +85,7 @@ function App() {
 
   const handleSeach = () => {
     // console.log(searchBar.current.value);
-    const seachedValue = searchBar.current.value;
+    const seachedValue = searchBar.current.value.toLowerCase();
     const filteredPokemon = pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(seachedValue)); 
     setSearchedPokemon(filteredPokemon);
   }

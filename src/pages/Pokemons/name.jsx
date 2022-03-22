@@ -22,28 +22,27 @@ const PokemonDetail = () => {
     const params = useParams();
     const pokemonService = usePokemons();
     const [selectedPokemon, setSelectedPokemon] = useState({});
-    // const [searchedPokemon, setSearchedPokemon] = useState([]);
-    const [pokemonList, setPokemonList] = useState([]);
+    const [error, setError] = useState("");
+
+    const getPokemonInfo =async (url) => {
+        try{
+            const pokemonRequest = await pokemonService.getPokemon(url);
+            const pokemon = await pokemonRequest.data;
+            //añadir propiedades pokemon.propiedad=pokemon.valor;
+            setSelectedPokemon(pokemon);
+        }catch(error){
+            setError("Ooops, something goes wrong...\n"+error);
+        }
+    };
 
     useEffect(() => {
-        //acceder a api con axios (libreria de JS paa acceder a API) [npm install axios]
-        const getPokemonList = async () =>{
-        const pokemons = await pokemonService.getPokemons();
-        const { results } = await pokemons.data;
+        getPokemonInfo(`https://pokeapi.co/api/v2/pokemon/${params.name}`);
+    },[]);
+    
+    if(!selectedPokemon.hasOwnProperty('abilities')){
+        return <img src={loadGif} alt="" />
+    }
 
-        setPokemonList(results);
-        //   setSearchedPokemon(results);
-        }
-        getPokemonList();
-      },[]);
-
-    const handlePokemon = async (url) => {
-        const pokemon = await pokemonService.getPokemon(url);
-        const pokemonInfo = await pokemon.data;
-        setSelectedPokemon(pokemonInfo);
-    };
-    // handlePokemon(params.url);
-    console.log(selectedPokemon.url)
     return(
         <>
             <Header/>
@@ -54,21 +53,26 @@ const PokemonDetail = () => {
             />
             </Hero>      
             <Section>
+                <>
                 <HeadingH2 
                     text = {params.name}
                     color = "red"
                 />
                 {
-                    pokemonService.loading && <img src={loadGif} alt=""/>
+                    // pokemonService.loading && <img src={loadGif} alt=""/>
                 }
                 {
-                    pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
+                    // pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
                 }                
-                {                   
-                    <ul>                        
-                        <li></li>
-                    </ul>
+               
+               <h2>Habilidades</h2>                          
+                {  
+                    selectedPokemon.abilities.map((item,index) => {
+                        <p>{item.ability.name}</p>
+                    })                          
                 }
+                    
+                </>
             </Section>
         </>
     );

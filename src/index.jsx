@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import GlobalStyle from './gobalStyle';
 
+import Contact from './pages/Contact';
+
 import {
   BrowserRouter,
   Routes,
@@ -23,6 +25,7 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="/pokemons" element={<Pokemons />} />
         <Route path="/pokemons/:name" element={<PokemonDetail />} />
+        <Route path="/contacto" element={<Contact />} />
       </Routes>
     </React.StrictMode>
   </BrowserRouter>,
