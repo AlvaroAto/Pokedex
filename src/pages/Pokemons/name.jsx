@@ -68,7 +68,9 @@ const PokemonDetail = () => {
                <h2>Habilidades</h2>                          
                 {  
                     selectedPokemon.abilities.map((item,index) => {
-                        <p>{item.ability.name}</p>
+                        return(
+                            <p key={index}>{item.ability.name}</p>
+                        );
                     })                          
                 }
                     
