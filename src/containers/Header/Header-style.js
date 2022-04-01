@@ -13,6 +13,7 @@ const HeaderContainer = styled.header`
     }
     span{
         cursor: pointer;
+        margin-left: 15px;
     }
 `;
 
