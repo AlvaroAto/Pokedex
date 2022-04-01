@@ -8,6 +8,12 @@ const HeaderContainer = styled.header`
     align-items: center;
     border-bottom: solid 1px black;
     background-color: #eeeeee;
+    a{
+        margin-left: 15px;
+    }
+    span{
+        cursor: pointer;
+    }
 `;
 
 export default HeaderContainer;

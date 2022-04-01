@@ -4,31 +4,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import GlobalStyle from './gobalStyle';
-
-import Contact from './pages/Contact';
-
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-
-import Pokemons from './pages/Pokemons/index';
-import PokemonDetail from './pages/Pokemons/name';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/pokemons" element={<Pokemons />} />
-        <Route path="/pokemons/:name" element={<PokemonDetail />} />
-        <Route path="/contacto" element={<Contact />} />
-      </Routes>
-    </React.StrictMode>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

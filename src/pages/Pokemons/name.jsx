@@ -54,25 +54,24 @@ const PokemonDetail = () => {
             </Hero>      
             <Section>
                 <>
-                    <HeadingH2 
-                        text = {params.name}
-                        color = "red"
-                    />
-                    {
-                        // pokemonService.loading && <img src={loadGif} alt=""/>
-                    }
-                    {
-                        // pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
-                    }                
-                
-                <h2>Habilidades</h2>                          
-                    {  
-                        selectedPokemon.abilities.map((item,index) => {
-                            return(
-                                <p key={index}>{item.ability.name}</p>
-                            );
-                        })                          
-                    }                    
+                <HeadingH2 
+                    text = {params.name}
+                    color = "red"
+                />
+                {
+                    // pokemonService.loading && <img src={loadGif} alt=""/>
+                }
+                {
+                    // pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
+                }                
+               
+               <h2>Habilidades</h2>                          
+                {  
+                    selectedPokemon.abilities.map((item,index) => {
+                        <p>{item.ability.name}</p>
+                    })                          
+                }
+                    
                 </>
             </Section>
         </>

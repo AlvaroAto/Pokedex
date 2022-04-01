@@ -8,13 +8,20 @@ import HeaderContainer from './Header-style';
 
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ handleTheme }) => {
+    // const handleClick = (e) =>{
+    //     e.preventdefault();
+    // }
     return (
         <HeaderContainer>
             <Logo></Logo> 
-            <Link to="/">Home</Link>
-            <Link to="/pokemons">Pokemons</Link>
-            <Link to="/contacto">Contacto</Link>
+            <nav>
+                <Link to="/">Home</Link>
+                <Link to="/pokemons">Pokemons</Link>
+                <Link to="/contacto">Contacto</Link>
+                {/* <span onClick={(e) => handleClick(e)}>Pasar a modo oscuro</span> */}
+                <span onClick={()=>handleTheme()}>Pasar a modo oscuro</span>
+            </nav>
         </HeaderContainer>
     );   
 };
