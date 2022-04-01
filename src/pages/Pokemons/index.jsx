@@ -87,7 +87,6 @@ function Pokemons() {
       {
         pokemonService.pokemonListError !== "" && <span>{pokemonService.pokemonListError}</span>
       }
-      {/* <span>Número de pokemons: {numerosPokemon}</span> */}
       <div className="buscador">
         <input 
           ref={searchBar} 
@@ -102,15 +101,11 @@ function Pokemons() {
       <PokemonList>
         {
           searchedPokemon.map((pokemon, index) => {
-            // handlePokemon(pokemon.url)
             return (
               <li key={index}>
                 <PokemonCard 
-                // number={selectedPokemon.id}
                 name={pokemon.name} 
-                // image={selectedPokemon.sprites.other["official-artwork"].front_default}
                 handleClick = {() => handlePokemon(pokemon.url)}
-                // handleClick = {() => setModalOpened(true)}
 
                 >                    
                   <Link to={`/pokemons/${pokemon.name}`}>Ver mas información</Link>
