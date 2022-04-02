@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import React from 'react';
 
 import HeadingH1Container from './HeadingH1-style';

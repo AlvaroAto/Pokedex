@@ -95,8 +95,8 @@ function Home() {
     const pokemons = await pokemonService.getNextPokemonsRequest(url);
     const { results } = await pokemons.data;
 
-    setPokemonList(results);
-    setSearchedPokemon(results);
+    setPokemonList(results); 
+
   }
 
   const handleSeach = () => {
@@ -170,6 +170,7 @@ function Home() {
       <PageNavegation
         prevUrl={pokemonList.previus}
         nextUrl={pokemonList.next}
+        onClick={getNextPokemonList(pokemonList.url)}
       >
       </PageNavegation>
     </Section>
