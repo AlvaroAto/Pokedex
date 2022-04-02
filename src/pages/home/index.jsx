@@ -92,7 +92,7 @@ function Home() {
   };
 
   const getNextPokemonList = async (url) =>{
-    const pokemons = await pokemonService.getNextPokemonsRequest(url);
+    const pokemons = await pokemonService.getNextPokemon(url);
     const { results } = await pokemons.data;
 
     setPokemonList(results); 
@@ -170,7 +170,7 @@ function Home() {
       <PageNavegation
         prevUrl={pokemonList.previus}
         nextUrl={pokemonList.next}
-        onClick={getNextPokemonList(pokemonList.url)}
+        handleClick={()=>getNextPokemonList(pokemonList.url)}
       >
       </PageNavegation>
     </Section>
