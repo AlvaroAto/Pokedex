@@ -1,14 +1,14 @@
 import React from "react";
 import PageButton from "../../components/Buttons/PageButton/PageButton";
-import PageNavegationContainer from "./PageNavegation-style";
+import PageNavigationContainer from "./PageNavigation-style";
 
-const PageNavegation = ({ prevUrl, nextUrl,onClick } ) =>{
+const PageNavigation = ({ prevUrl, nextUrl,onClick } ) =>{
     return(
-        <PageNavegationContainer>
+        <PageNavigationContainer>
             <PageButton url={prevUrl} onClick={onClick}>Prev</PageButton>
             <PageButton url={nextUrl} onClick={onClick}>Next</PageButton>
-        </PageNavegationContainer>
+        </PageNavigationContainer>
     );
 };
 
-export default PageNavegation;
+export default PageNavigation;

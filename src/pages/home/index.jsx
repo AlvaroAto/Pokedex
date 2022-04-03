@@ -18,7 +18,7 @@ import Section from '../../containers/Section/Section';
 import PokemonList from '../../containers/PokemonList/PokemonList';
 import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import MainModal from '../../containers/MainModal/MainModal';
-import PageNavegation from '../../containers/PageNavegation/PageNavegation';
+import PageNavigation from '../../containers/PageNavigation/PageNavigation';
 
 //styled components
 import HomeContainer from './home-style';
@@ -92,11 +92,10 @@ function Home() {
   };
 
   const handlePokemonPagination = async (url) =>{
-    const pokemons = await pokemonService.getNextPokemon(url);
+    const pokemons = await pokemonService.getMorePokemon(url);
     const { results } = await pokemons.data;
 
     setPokemonList(results); 
-
   }
 
   const handleSeach = () => {
@@ -167,10 +166,10 @@ function Home() {
       </PokemonList>
       {/* console.log(pokemonList.previus); */}
       
-      <PageNavegation
+      <PageNavigation
         prevUrl={pokemonList.previus}
         nextUrl={pokemonList.next}
-        onClick={()=>handlePokemonPagination(pokemonList.url)}
+        onClick={()=>handlePokemonPagination()}
       />
     </Section>
     {

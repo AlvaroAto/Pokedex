@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getNextPokemonsRequest = async(url) =>{
+export const getMorePokemonsRequest = async(url) =>{
     return axios(url,{
         method: 'get'
       });

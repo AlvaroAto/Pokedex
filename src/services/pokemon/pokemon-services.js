@@ -1,7 +1,7 @@
 import { useState } from 'react'; 
 import { getPokemonsRequest } from '../../lib/pokemon-api/requests/get-pokemons-request';
 import { getPokemonRequest } from '../../lib/pokemon-api/requests/get-pokemon-request';
-import { getNextPokemonsRequest } from '../../lib/pokemon-api/requests/get-next-pokemons-request';
+import { getMorePokemonsRequest } from '../../lib/pokemon-api/requests/get-more-pokemons-request';
 
 export const usePokemons = () => {
     const [loading, setLoading] = useState(true);
@@ -29,9 +29,9 @@ export const usePokemons = () => {
         }
     };
 
-    const getNextPokemon = async (url) => {
+    const getMorePokemon = async (url) => {
         try{
-            const pokemonResponse = await getNextPokemonsRequest(url); 
+            const pokemonResponse = await getMorePokemonsRequest(url); 
             setLoading(false);
             return pokemonResponse; 
         }catch(error){
@@ -43,7 +43,7 @@ export const usePokemons = () => {
     return {
         getPokemons,
         getPokemon,
-        getNextPokemon,
+        getMorePokemon,
         loading,
         pokemonListError
     }
