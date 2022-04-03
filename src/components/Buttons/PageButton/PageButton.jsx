@@ -1,9 +1,11 @@
 import React from "react";
 import PageButtonContainer from "./PageButton";
 
-const PageButton = ({url,children}) =>{
+const PageButton = ({url,onClick,children}) =>{
     return(
-        <PageButtonContainer href={url}>
+        <PageButtonContainer 
+            onClick={() => onClick(url)}
+        >
             {children}
         </PageButtonContainer>
     );

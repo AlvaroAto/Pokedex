@@ -91,7 +91,7 @@ function Home() {
     handleModal(true)
   };
 
-  const getNextPokemonList = async (url) =>{
+  const handlePokemonPagination = async (url) =>{
     const pokemons = await pokemonService.getNextPokemon(url);
     const { results } = await pokemons.data;
 
@@ -170,9 +170,8 @@ function Home() {
       <PageNavegation
         prevUrl={pokemonList.previus}
         nextUrl={pokemonList.next}
-        handleClick={()=>getNextPokemonList(pokemonList.url)}
-      >
-      </PageNavegation>
+        onClick={()=>handlePokemonPagination(pokemonList.url)}
+      />
     </Section>
     {
       modalOpened && (
