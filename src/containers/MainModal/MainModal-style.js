@@ -50,8 +50,10 @@ const MainModalContainer = styled.div`
         max-height:300px;
         overflow: auto;
         padding:10px 20px;
-        li{
-            margin-bottom:10px;
+        ul{
+            li{
+                margin-bottom:10px;
+            }
         }
     }
  

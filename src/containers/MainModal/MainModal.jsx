@@ -1,9 +1,14 @@
-import React from "react";
+import React,{useContext} from "react";
 import HeadingH2 from "../../components/Text/Headings/HeadingH2/HeadinH2";
+import List from "../../components/Text/List/List";
+
 //import styled-components
 import MainModalContainer from "./MainModal-style";
 
+import { ThemeContext } from '../../context/ThemeContext';
+
 const MainModal = ({children,handleClick}) => {
+    const themeValue = useContext(ThemeContext);
     return(
         <MainModalContainer>
             <div className="modal-wrapper">
@@ -12,7 +17,7 @@ const MainModal = ({children,handleClick}) => {
                     <span onClick={() => handleClick()}>X</span>
                 </div>
                 <div className="body">
-                    <ul>{children}</ul>
+                    <List>{children}</List>
                 </div>
             </div>
         </MainModalContainer>

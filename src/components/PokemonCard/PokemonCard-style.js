@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+import {lightTheme, darkTheme} from '../../constants/color';
+
 const PokemonCardContainer = styled.article`
     width: 180px;
     padding: 15px;
     margin-bottom: 16px;
-    border: solid 1px black;
+    border: solid 1px ${(props) => props.theme === 'light' ? lightTheme.black : darkTheme.black};
     border-radius: 15px;
-    box-shadow: 1px 2px 4px rgba(0,0,0,.2);
+    box-shadow: 0px 0px 6px ${(props) => props.theme === 'light' ? lightTheme.black : darkTheme.black};
     h3{
         font-size: 24px;
         line-height:48px;
