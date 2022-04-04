@@ -1,4 +1,11 @@
-// "homepage": "https://github.com/AlvaroAto/Pokedex.git",
+//react
+npx create-react-app "nombre(./ -> carpeta actual)"
+
+//axios
+nom install axios
+
+//styled-components
+npm install --save styled-components
 
 //react router
 npm install react-router-dom@6
