@@ -23,14 +23,20 @@ const Contact = () => {
 
     const sendForm = () => {
         setErrorMessage('');
+        let errores = '';
         if(formMessage.nombre === ''){
-            setErrorMessage("El campo nombre no puede estar vacío");
+            errores+="nombre ";
         }
         if(formMessage.email === ''){
-            setErrorMessage("El campo email no puede estar vacío");
+            errores+="email ";
         }
         if(formMessage.mensaje === ''){
-            setErrorMessage("El campo mensaje no puede estar vacío");
+            errores+="mensaje"
+        }
+        if(errores !== ''){
+            setErrorMessage(`El campo `+ errores +` no puede estar vacío`);
+        }else{
+
         }
     }
     return(
@@ -59,7 +65,8 @@ const Contact = () => {
                 <textarea 
                     name="mensaje" 
                     cols="30" 
-                    rows="10"
+                    rows="10"                    
+                    placeholder='Mensaje'
                     onBlur={(e)=>handleForm(e)}
                     ></textarea><br></br>
                 <span onClick={()=>sendForm()}>Enviar</span>
