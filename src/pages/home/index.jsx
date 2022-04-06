@@ -93,7 +93,7 @@ function Home() {
 
   const handlePokemonPagination = async (url) =>{
     const pokemons = await pokemonService.getMorePokemon(url);
-    const { results } = await pokemons.data;
+    const results = await pokemons.data;
 
     setPokemonList(results); 
   }
