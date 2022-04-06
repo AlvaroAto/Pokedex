@@ -19,7 +19,7 @@ import Section from '../../containers/Section/Section';
 import { usePokemons } from '../../services/pokemon/pokemon-services';
 
 const PokemonDetail = () => {
-    const params = useParams();
+    const {name} = useParams();
     const pokemonService = usePokemons();
     const [selectedPokemon, setSelectedPokemon] = useState({});
     const [error, setError] = useState("");
@@ -36,7 +36,7 @@ const PokemonDetail = () => {
     };
 
     useEffect(() => {
-        getPokemonInfo(`https://pokeapi.co/api/v2/pokemon/${params.name}`);
+        getPokemonInfo(`https://pokeapi.co/api/v2/pokemon/${name}`);
     },[]);
     
     if(!selectedPokemon.hasOwnProperty('abilities')){
@@ -48,14 +48,14 @@ const PokemonDetail = () => {
             <Header/>
             <Hero height="">
             <HeadingH1 
-                text = {`Datos de ${params.name}`}
+                text = {`Datos de ${name}`}
                 color = '#ffffff'
             />
             </Hero>      
             <Section>
                 <>
                 <HeadingH2 
-                    text = {params.name}
+                    text = {name}
                     color = "red"
                 />
                 {

@@ -1,9 +1,17 @@
-import React, {useState} from "react";
+import React, {useState,useContext} from "react";
+
+import Header from "../../containers/Header/Header";
+import { ThemeContext } from "styled-components";
+
+import FormContainer from "../../containers/Form/Form-style";
 
 const Contact = () => {
 
     const [formMessage,setFormMessage] = useState({});
     //crear variable error,seterror
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const themeValue = useContext(ThemeContext);
 
     const handleForm = (e) => {
         const updateMessage = {
@@ -14,13 +22,28 @@ const Contact = () => {
     }
 
     const sendForm = () => {
-        //validacion de formulario aqui
-        console.log(formMessage);
+        setErrorMessage('');
+        if(formMessage.nombre === ''){
+            setErrorMessage("El campo nombre no puede estar vacío");
+        }
+        if(formMessage.email === ''){
+            setErrorMessage("El campo email no puede estar vacío");
+        }
+        if(formMessage.mensaje === ''){
+            setErrorMessage("El campo mensaje no puede estar vacío");
+        }
     }
     return(
-        <div>
+        <>
+        <Header
+            handleTheme={() => themeValue.handleTheme()}
+        />
+        <FormContainer>
             <h1>Pagina de contacto</h1>
             <form>
+                <label>
+                {errorMessage && (errorMessage) }
+                </label><br></br>
                 <input 
                     type="text" 
                     name="nombre" 
@@ -41,7 +64,8 @@ const Contact = () => {
                     ></textarea><br></br>
                 <span onClick={()=>sendForm()}>Enviar</span>
             </form>
-        </div>
+        </FormContainer>
+        </>        
     );
 };
 
