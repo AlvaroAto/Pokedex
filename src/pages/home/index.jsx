@@ -76,10 +76,10 @@ function Home() {
     //acceder a api con axios (libreria de JS paa acceder a API) [npm install axios]
     const getPokemonList = async () =>{
       const pokemons = await pokemonService.getPokemons();
-      const { results } = await pokemons.data;
+      const response = await pokemons.data;
 
-      setPokemonList(results);
-      setSearchedPokemon(results);
+      setPokemonList(response);
+      setSearchedPokemon(response);
     }
     getPokemonList();
   },[]);
@@ -94,7 +94,7 @@ function Home() {
   const handlePokemonPagination = async (url) =>{
     const pokemon = await pokemonService.getPokemon(url);
     const pokemonInfo = await pokemon.data;
-    console.log(pokemonInfo.results)
+    console.log(pokemonInfo)
     setPokemonList(pokemonInfo.results);
     setSearchedPokemon(pokemonInfo.results); 
   }
@@ -102,7 +102,7 @@ function Home() {
   const handleSeach = () => {
     // console.log(searchBar.current.value);
     const seachedValue = searchBar.current.value.toLowerCase();
-    const filteredPokemon = pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(seachedValue)); 
+    const filteredPokemon = pokemonList.results.filter(pokemon => pokemon.name.toLowerCase().includes(seachedValue)); 
     setSearchedPokemon(filteredPokemon);
   }
 
@@ -149,7 +149,7 @@ function Home() {
       </div>
       <PokemonList>
         {
-          searchedPokemon.map((pokemon, index) => {
+          searchedPokemon.results && searchedPokemon.results.map((pokemon, index) => {
             // handlePokemon(pokemon.url)
             return (
               <li key={index}>
