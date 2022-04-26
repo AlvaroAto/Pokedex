@@ -67,9 +67,9 @@ const PokemonDetail = () => {
                
                <h2>Habilidades</h2>                          
                 {  
-                    selectedPokemon.abilities.map((item,index) => {
+                    selectedPokemon.abilities && (selectedPokemon.abilities.map((item,index) => {
                         return(<p key={index}>{item.ability.name}</p>);
-                    })                          
+                    }) )                         
                 }
                     
                 </>

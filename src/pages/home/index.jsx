@@ -92,10 +92,11 @@ function Home() {
   };
 
   const handlePokemonPagination = async (url) =>{
-    const pokemons = await pokemonService.getMorePokemon(url);
-    const results = await pokemons.data;
-
-    setPokemonList(results); 
+    const pokemon = await pokemonService.getPokemon(url);
+    const pokemonInfo = await pokemon.data;
+    console.log(pokemonInfo.results)
+    setPokemonList(pokemonInfo.results);
+    setSearchedPokemon(pokemonInfo.results); 
   }
 
   const handleSeach = () => {
@@ -169,7 +170,7 @@ function Home() {
       <PageNavigation
         prevUrl={pokemonList.previus}
         nextUrl={pokemonList.next}
-        onClick={()=>handlePokemonPagination()}
+        onClick={(url)=>handlePokemonPagination(url)}
       />
     </Section>
     {

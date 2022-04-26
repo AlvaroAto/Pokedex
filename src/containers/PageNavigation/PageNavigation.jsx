@@ -5,8 +5,8 @@ import PageNavigationContainer from "./PageNavigation-style";
 const PageNavigation = ({ prevUrl, nextUrl,onClick } ) =>{
     return(
         <PageNavigationContainer>
-            <PageButton url={prevUrl} onClick={onClick}>Prev</PageButton>
-            <PageButton url={nextUrl} onClick={onClick}>Next</PageButton>
+            <PageButton url={prevUrl} >Prev</PageButton>
+            <PageButton url={nextUrl} >Next</PageButton>
         </PageNavigationContainer>
     );
 };
