@@ -22,6 +22,7 @@ export const usePokemons = () => {
         try{
             const pokemonResponse = await getPokemonRequest(url); 
             setLoading(false);
+            console.log('pokemonResponse:'+pokemonResponse);
             return pokemonResponse; 
         }catch(error){
             setPokemonListError(error);

@@ -95,8 +95,8 @@ function Home() {
     const pokemon = await pokemonService.getPokemon(url);
     const pokemonInfo = await pokemon.data;
     console.log(pokemonInfo)
-    setPokemonList(pokemonInfo.results);
-    setSearchedPokemon(pokemonInfo.results); 
+    setPokemonList(pokemonInfo);
+    setSearchedPokemon(pokemonInfo); 
   }
 
   const handleSeach = () => {
@@ -168,7 +168,7 @@ function Home() {
       {/* console.log(pokemonList.previus); */}
       
       <PageNavigation
-        prevUrl={pokemonList.previus}
+        prevUrl={pokemonList.previous}
         nextUrl={pokemonList.next}
         onClick={(url)=>handlePokemonPagination(url)}
       />
